@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>HREXT06 Cruddy App</title>
     <link rel="stylesheet" href="style.css">
-    <script
-            src="https://code.jquery.com/jquery-3.3.1.js"
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>
     <script src="app.js"></script>
   </head>
   <body>
-  <div>
-    <input class="text-entry" type="text" placeholder="enter your information">
-    <button class="btn-submit" type="button">save value</button>
-    <button class="btn-delete" type="button">delete value</button>
-  </div>
-  <div class="list-display-field">
-    nothing to display yet
-  </div>
+    <div class="container">
+      <header>Simple To-do List</header>
+      
+      <form class="add-items">
+        <input type="text" class="form-control" id="todo-list-item" placeholder="Add task here...">
+        <button class="btn-add" type="submit">ADD</button>
+        <hr>
+      </form>
+
+      <ul id="list-items"></ul>
+
+    </div> 
   </body>
 </html>

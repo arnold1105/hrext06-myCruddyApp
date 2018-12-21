@@ -1,20 +1,21 @@
 $(document).ready(function(){
-  console.log('jQuery loaded');
 
-  // write to local storage from input when button save clicked
-  $('.btn-submit').on('click', function(){
-    localStorage.setItem('inputFieldValue', $('.text-entry').val());
-    var myItemInStorage = localStorage.getItem('inputFieldValue');
-    console.log('myItemInStorage', myItemInStorage);
+  $('#list-items').html(localStorage.getItem('listItems'));
 
-    // display the value here
-    $('.list-display-field').text(myItemInStorage); // ??
+  $('.add-items').submit(function(event){
+    event.preventDefault();
+    var item = $('#todo-list-item').val();
 
+    $('#list-items').append("<li>" + item + "<a class='remove'>Clear</a></li>");
+    localStorage.setItem('listItems', $('#list-items').html());
+    $('#todo-list-item').val("");
   });
 
-  // delete from local storage when delete button clicked
-  $('.btn-delete').on('click', function(){
-    localStorage.removeItem('inputFieldValue');
+
+  $(document).on('click', '.remove', function(){
+    $(this).parent().remove();
+    localStorage.setItem('listItems', $('#list-items').html());
   });
+
 
 });
